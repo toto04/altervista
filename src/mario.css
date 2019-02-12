@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "SMB";
+  src: url("tlpsmb.ttf");
+}
+
+.mario {
+  font-family: "SMB";
+  line-height: 0%;
+  font-size: 40px;
+  text-align: center;
+  -webkit-text-stroke: 3px black;
+}
+
+.blue {
+  color: #1ba0db;
+}
+.yellow {
+  color: #FECF31;
+}
+.red {
+  color: #E32B20;
+}
+.green {
+  color: #4BAC40;
+}

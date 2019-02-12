@@ -1,0 +1,452 @@
+:root {
+  /* Variabili globali, più facile */
+  --headerSize: 80px;
+  --mainColor: #5EDCFF;
+  --darkColor: #3db2d3;
+  --greyColor: #EEEEEE;
+  --rectUpperMargin: 0.34;
+  --buttonSize: 0.7; /* in relazione all'headerSize */
+  --move: 0px;    /* per muovere  */
+  --sidebarWidth: 200px;
+  --contentBorder: 3%;
+}
+
+@font-face {
+  font-family: "SanFranciscoThin";
+  src: url("SFProThin.otf");
+}
+
+@font-face {
+  /* Non lo uso veramente perché l'altro meglio lmao */
+  font-family: "SanFrancisco";
+  src: url("SFProLight.otf");
+}
+
+html {
+  /* è molto importante ricordare alla pagina che è grossa il 100% della pagina */
+  height: 100%;
+}
+
+body {
+  font-family: "SanFranciscoThin";
+  font-weight: normal;
+  min-height: calc(100% - var(--headerSize));
+  margin-left: 0px;
+}
+
+#header {
+  position: fixed;
+  display: table;
+  z-index: 3; /* serve specificare se no l'ombra va sotto al menu */
+
+  font-family: "SanFranciscoThin";
+  color: white;
+  font-size: calc(var(--headerSize) * 3/4);
+  left: 0px;
+  top: 0px;
+  width: 100%;
+
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--mainColor);
+  height: var(--headerSize);
+}
+
+.headerCell {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.buttonContainer {
+  width: var(--headerSize);
+}
+
+.unselectable {
+  /* se non li metto tutti per qualche ragione non funziona */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#button {
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  width:  calc(var(--headerSize) * var(--buttonSize));
+  height: calc(var(--headerSize) * var(--buttonSize));
+  margin: auto;
+}
+
+#rect {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 4%;
+}
+
+#rect::before {
+  content: ''; /* Necessario per mostrare lo pseudoelemento */
+  position: absolute;
+  top: calc(var(--headerSize) * var(--buttonSize) * var(--rectUpperMargin) + var(--move));
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+  transform: rotate(var(--rotateLeft));
+}
+
+#rect::after {
+  content: '';
+  position: absolute;
+  /* gran bel macello di calcolo questo */
+  top: calc(
+    var(--headerSize) * var(--buttonSize) *  calc(1 - var(--rectUpperMargin))
+    - var(--headerSize) * var(--buttonSize) * 0.04
+    - var(--move)
+  );
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s ease;
+  transform: rotate(var(--rotateRight));
+}
+
+#user {
+  --s: calc(var(--headerSize) * 0.5);
+  font-size: var(--s);
+  position: relative;
+  width: 1px;
+  white-space: nowrap;
+  margin: auto;
+  margin-right: 0;
+  padding-right: 8px;
+  cursor: pointer;
+}
+
+#usrIcon {
+  --h: calc(0.6 * var(--s));
+  position: absolute;
+  top: 0px;
+  left: calc(-8px - var(--s));
+  margin: auto;
+  /* background-color: rgba(255,255,255,0.5); */
+  width: var(--s);
+  height: 100%;
+}
+
+#usrIcon::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: var(--h);
+  border-radius: 100%;
+  height: var(--h);
+  left: calc(calc(var(--s)/2) - (calc(var(--h))/2));
+  top: 18px;
+}
+
+#usrIcon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: calc(50% - 25px);
+  top: calc(var(--headerSize) / 2 + 8px);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background-color: white;
+}
+
+#pageTitle {
+  position: relative;
+  left: 0px;
+  transition: all 0.4 ease;
+}
+
+#contentShadow {
+  display: none;
+  opacity: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: black;
+  transition: all 0.2s ease;
+}
+
+#contentWrapper {
+  font-size: 20px;
+  margin-top: 80px;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+#left {
+  position: fixed;
+  height: 100%;
+  z-index: 2;
+  max-width: calc(var(--headerSize) * 3);
+  /* left: calc(var(--headerSize) * 2.5) */
+  background-color: var(--mainColor);
+  transition: all 0.3s ease;
+}
+
+#menuList {
+  font-family: "SanFranciscoThin";
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  color: white;
+  text-decoration: none;
+  font-size: calc(var(--headerSize) / 2);
+  list-style-type: none;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+a {
+  color: black;
+}
+
+.menuLink {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+a.menuLink {
+  /* Per evitare di avere il testo attaccato alle pareti del rettangolo */
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+li.menuLink:hover {
+  background-color: var(--darkColor);
+}
+
+#button:hover {
+  background-color: var(--darkColor);
+}
+
+#content {
+  display: block;
+  padding: calc(8px + var(--contentBorder));
+  width: calc(100% - 2 * var(--contentBorder))
+}
+
+.code {
+  font-family: monospace;
+  background-color: var(--greyColor);
+  font-size: 16px;
+  width: 80%;
+  margin-left: 30px;
+  white-space: pre-wrap; /* Serve perché il pre non va a capo da solo */
+  border: 0 !important;
+  border-left: 5px solid !important;
+  border-color: var(--mainColor) !important;
+  padding: 4px !important;
+  border-radius: 0.3em !important;
+}
+
+.title {
+  font-size: 20px;
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+}
+
+#homebg {
+  width: 100%;
+  height: 400px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  background-image: url("/src/images/homebg1.JPG");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sidebar {
+  margin-top: 20px;
+  border-radius: 0.5em;
+  background-color: var(--greyColor);
+  float: left;
+  width: var(--sidebarWidth);
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.mainContent {
+  width: calc(100% - calc(var(--sidebarWidth) + var(contentBorder) + 20px));
+  margin-left: calc(var(--sidebarWidth) + 20px + var(--contentBorder));
+}
+
+.sub {
+  /*un paio di bellissime righe perché i link dalla sidebar no mandino troppo in basso*/
+  padding-top: calc(20px + var(--headerSize));
+  margin-top: calc(-20px - var(--headerSize));
+}
+
+.review {
+  background-color: var(--greyColor);
+  width: 100%;
+  min-height: 130px;
+  margin-top: 30px;
+  border-radius: 1em;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+.reviewHead {
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  display: float;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
+  background-color: var(--mainColor);
+}
+
+.review p {
+  margin: 10px;
+}
+
+#newReview {
+  opacity: 0;
+  display: none;
+  position: fixed;
+  border-radius: 1em;
+  padding: 3%;
+  width: 20%;
+  left: 37%;
+  top: 30%;
+  height: 225px;
+  background-color: var(--greyColor);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.submitButton {
+  border: none;
+  border-radius: 0.5em;
+  background-color: var(--mainColor);
+  transition: all 0.2s ease;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.submitButton:hover {
+  background-color: var(--darkColor)
+}
+
+.submitButton:active, .submitButton:focus {
+  color: white;
+}
+
+#newReview button {
+  width: 60%;
+  margin-left: 20%;
+}
+
+#newReview input, textarea {
+  width: 90%;
+}
+
+#newReview input[type="number"] {
+  width: 40px;
+}
+
+#close {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: auto;
+  right: 20px;
+  height: 10px;
+  width: 10px;
+}
+
+#close > div::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  background-color: black;
+  height: 2px;
+  width: 10px;
+  transform: rotate(45deg);
+}
+
+#close > div::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  background-color: black;
+  height: 2px;
+  width: 10px;
+  transform: rotate(-45deg);
+}
+
+textarea {
+  resize: none;
+}
+
+#comment {
+  height: 4em;
+}
+
+#source {
+  position: absolute;
+  font-size: 15px;
+  left: 5px;
+  color: white;
+  text-decoration: none;
+  top: auto;
+  bottom: 100px;
+}
+
+.loginWrapper {
+  width: 100%;
+  margin: auto;
+  width: 30%;
+}
+
+.loginHeader {
+  border-radius: 0.5em 0.5em 0 0;
+  padding: 8px;
+  background-color: var(--mainColor);
+}
+
+.loginHeader h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.login {
+  padding: 16px;
+  border-radius: 0 0 0.5em 0.5em;
+  background-color: var(--greyColor);
+
+}
+
+.loginChanger {
+  font-size: 16px;
+  text-align: right;
+  cursor: pointer;
+  margin: 2px;
+}
+
+.login input,button {
+  width: 100%;
+  box-sizing: border-box; /* per evitare che siano più grandi */
+  border: none;
+}
+
+.login input {
+  height: 2em;
+  margin-bottom: 8px;
+  padding: 2px;
+}
