@@ -22,6 +22,7 @@
 				TBC...
 			</p>
 			<h3>Sito in costruzione</h3>
+			<?php print_r($_SESSION); ?>
 		</div>
 	</div>
 </body>

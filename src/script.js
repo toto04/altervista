@@ -17,7 +17,7 @@ function init() {
     $("title").html("Tommaso Morganti | " + pageName);
     // $('.flexslider').flexslider({ animation: slide })
     shadow = document.getElementById('contentShadow').style
-    $("#header").load("/elements/header.html", ()=>{
+    $("#header").load("/elements/header.php", ()=>{
       headerSize = document.getElementById('header').clientHeight // Retrieve header size for math
       buttonSize = document.getElementById('button').clientHeight
       rect = document.getElementById('rect').style

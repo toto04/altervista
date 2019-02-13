@@ -13,43 +13,37 @@
 	<div id="contentWrapper">
 		<div id="left"></div>
 		<div id="content">
-			<script type="text/javascript">
-				var login = true;
-				var lgnTimer;
-			</script>
+			<?php
+			require 'database.php';
+			if ($_POST['sub'] == 'login') {
+				// TODO: gestire il login
+				echo "Log";
+				//$_SESSION['isLogged'] = true;
+				//$_SESSION['username'] = $_POST['username'];
+				//$_SESSION['password'] = $_POST['password'];
+			} else if ($_POST['sub'] == 'register') {
+				$usr = $_POST['username'];
+				$email = $_POST['email'];
+				$pwd = hash('sha256', $_POST['password']);
 
-      <div class="loginWrapper">
-        <div class="loginHeader" style="background-color: var(--mainColor);">
-          <h3>Login</h3>
-        </div>
-        <form class="login" method="post">
-          <label>Nome utente: </label><br>
-          <input type="text" name="username" required><br>
-          <label>Password: </label><br>
-          <input type="password" name="psw" required><br>
-          <button class="submitButton" type="submit" name="sub" value="login">Login</button>
-        </form>
-				<p class="loginChanger unselectable" onclick="toggleLogin()">Non hai un account? Clicca qui!</p>
-      </div>
+				$newUsr = "INSERT INTO users (username, email, password) VALUES ('$usr','$email','$pwd')";
+				mysql_query($newUsr);
 
-			<div class="loginWrapper" style="display: none;">
-        <div class="loginHeader" style="background-color: var(--mainColor);">
-          <h3>Registrati</h3>
-        </div>
-        <form class="login" method="post">
-          <label>Nome utente: </label><br>
-          <input type="text" name="username" required><br>
-					<label>Email: </label><br>
-					<input type="email" name="username" required><br>
-					<label>Password: </label><br>
-          <input type="password" name="psw" required><br>
-					<label>Conferma Password: </label><br>
-          <input type="password" name="psw" required><br>
-          <button class="submitButton" type="submit" name="sub" value="register">Registrati</button>
-        </form>
-				<p class="loginChanger unselectable" onclick="toggleLogin()">Hai già un account? Clicca qui!</p>
-      </div>
+				$_SESSION['isLogged'] = true;
+				$_SESSION['username'] = $usr;
+			} else {
+				echo "post??";
+				print_r($_POST);
+			}
 
+			if ($_SESSION['isLogged']) {
+				echo "Logged";
+				// TODO: Creare interfaccia utente
+			} else {
+				//echo "not logged";
+				require './elements/logForms.html';
+			}
+			?>
 		</div>
 	</div>
 </body>

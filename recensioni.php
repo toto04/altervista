@@ -15,18 +15,15 @@
     <div id="content">
       <script src="/src/javascript/review.js" charset="utf-8"></script>
       <?php
+      // TODO: Gestire le recensioni con l'account
       //Gestisce le informazioni
       if (isset($_POST["save"])) {
         $insert = "INSERT INTO my_tommasomorganti.comments (id, Mark, Name, Comment, data) VALUES (NULL," . $_POST["mark"] . ",'" . $_POST["name"] . "','" . $_POST["comment"] . "', CURRENT_TIMESTAMP());";
         mysql_query($insert);
       }
       ?>
-
       <?php
-      require 'credentials.php';
-      $link = mysql_connect($server, $username, $password);
-      mysql_set_charset('utf8');
-      $db = mysql_select_db($DB_name, $link) or die("Errore");
+      require 'database.php';
 
       $query = "SELECT * FROM comments";
       $content = mysql_query($query);

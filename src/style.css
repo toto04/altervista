@@ -232,9 +232,10 @@ li.menuLink:hover {
 }
 
 #content {
+  --cp: calc(8px + var(--contentBorder));
   display: block;
-  padding: calc(8px + var(--contentBorder));
-  width: calc(100% - 2 * var(--contentBorder))
+  padding: var(--cp);
+  width: calc(100% - 2 * var(cp));
 }
 
 .code {
