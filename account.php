@@ -26,6 +26,7 @@
 				$pass = mysql_fetch_array($cont)['password'];
 				if ($pwd == $pass) {
 					$_SESSION['isLogged'] = true;
+					
 					$_SESSION['username'] = $usr;
 				} else {
 					echo "Password sbagliata!";
