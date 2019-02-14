@@ -13,7 +13,8 @@
 	<div id="contentWrapper">
 		<div id="left"></div>
 		<div id="content">
-			ciao
+			prova2
+			questo è un bel branch
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
@@ -26,7 +27,6 @@
 				$pass = mysql_fetch_array($cont)['password'];
 				if ($pwd == $pass) {
 					$_SESSION['isLogged'] = true;
-					
 					$_SESSION['username'] = $usr;
 				} else {
 					echo "Password sbagliata!";
