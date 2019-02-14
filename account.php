@@ -14,7 +14,11 @@
 		<div id="left"></div>
 		<div id="content">
 			ciao2
+<<<<<<< HEAD
 			questa è una modifica al master3
+=======
+			questa è una modifica al master2
+>>>>>>> 24d9e4564afafdc0858ed5686a35cd5beef7d310
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
