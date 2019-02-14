@@ -14,7 +14,7 @@
 		<div id="left"></div>
 		<div id="content">
 			ciao2
-			questa è una modifica al master1
+			questa è una modifica al master2
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
