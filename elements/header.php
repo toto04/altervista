@@ -7,7 +7,7 @@
 <div id="pageTitle" class="headerCell">
   Err, no pageName
 </div>
-<div id='user' class='headerCell' onclick="loadPage('account.php')">
+<div id='user' class='headerCell' onclick="loadPage('/account.php')">
   <div id="usrIcon"></div>
   <div id="usrName">
     <?php if ($_SESSION['isLogged']) {
