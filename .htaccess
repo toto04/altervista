@@ -12,5 +12,11 @@ RewriteRule . /index.php [L]
 
 # END WordPress
 
+# In caso di HTTP viene cambiato ad HTTPS
+RewriteBase /
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # # av:php5-engine
 AddHandler av-php5 .php
