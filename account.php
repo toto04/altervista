@@ -14,6 +14,7 @@
 	<div id="contentWrapper">
 		<div id="left"></div>
 		<div id="content">
+			ciao
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
@@ -31,7 +32,7 @@
 					echo "Password sbagliata!";
 				}
 				//echo "Log";
-				
+
 			} else if ($_POST['sub'] == 'register') {
 				$usr = $_POST['username'];
 				$email = $_POST['email'];
