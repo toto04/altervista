@@ -14,9 +14,6 @@
 	<div id="contentWrapper">
 		<div id="left"></div>
 		<div id="content">
-			ciao2
-			questa è una modifica al master3
-			questa è una modifica al master2
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
@@ -33,8 +30,8 @@
 				} else {
 					echo "Password sbagliata!";
 				}
-				echo "Log";
-
+				//echo "Log";
+				
 			} else if ($_POST['sub'] == 'register') {
 				$usr = $_POST['username'];
 				$email = $_POST['email'];
@@ -47,8 +44,8 @@
 				$_SESSION['isLogged'] = true;
 				$_SESSION['username'] = $usr;
 			} else {
-				echo "post??";
-				print_r($_POST);
+				//echo "post??";
+				//print_r($_POST);
 			}
 
 			if ($_SESSION['isLogged']) {
