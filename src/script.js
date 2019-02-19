@@ -161,6 +161,23 @@ function validatePassword() {
   }
 }
 
+function checkUsername() {
+  var userCheck = document.getElementById('usrchk');
+  userCheck.setCustomValidity("Sto controllando la disponibilità...");
+  $.ajax({
+    url: '/etc/checkUser.php?username=' + userCheck.value,
+    success: (res) => {
+      if (res == 'non esiste') {
+        // console.log('Puoi usarlo!');
+        userCheck.setCustomValidity('');
+      } else {
+        // console.log("non puoi");
+        userCheck.setCustomValidity('Username già preso');
+      }
+    }
+  });
+}
+
 // var visible = true;
 // $(window).scroll(()=>{
 //   //work in progress, bottone che farà tornare in cima alla pagina

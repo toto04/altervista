@@ -23,7 +23,7 @@
   </div>
   <form class="login" method="post">
     <label>Nome utente: </label><br>
-    <input type="text" name="username" required><br>
+    <input id="usrchk" type="text" name="username" onchange="checkUsername()" required><br>
     <label>Email: </label><br>
     <input type="email" name="email" required><br>
     <label>Password: </label><br>
