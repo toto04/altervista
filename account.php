@@ -14,7 +14,6 @@
 	<div id="contentWrapper">
 		<div id="left"></div>
 		<div id="content">
-			ciao
 			<?php
 			require 'database.php';
 			if ($_POST['sub'] == 'login') {
@@ -43,6 +42,9 @@
 
 				$_SESSION['isLogged'] = true;
 				$_SESSION['username'] = $usr;
+			} else if ($_POST['sub'] == 'logout') {
+				echo "logout";
+				session_unset();
 			} else {
 				//echo "post??";
 				//print_r($_POST);
@@ -53,9 +55,11 @@
 				echo "<div class='title'><h1>"
 				. "Benvenuto, " . $_SESSION['username']
 				. "! </h1></div>";
-
+				echo '
+				<form method="post" class="loginWrapper">
+    			<button class="submitButton" type="submit" name="sub" value="logout">Logout</button>
+				</form>';
 				// TODO: Creare interfaccia utente
-				// TODO: creare tasto per uscire
 			} else {
 				//echo "not logged";
 				require './elements/logForms.html';
