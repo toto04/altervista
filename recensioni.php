@@ -64,7 +64,7 @@
         '<div class="review">
           <div class="reviewHead">
             <span>' . $row[2] . ' - ' . $row[1] . '/10</span>
-            <span style="position: absolute; left: auto; right: 55px;">' . $row[4] . "</span>
+            <span style="float: right; margin-right: 8px;">' . $row[4] . "</span>
           </div>
           <p>" . $row[3] . '</p>
         </div>';
