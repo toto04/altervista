@@ -149,7 +149,17 @@ function toggleLogin() {
   }
 }
 
+function validatePassword() {
+  pwd = document.getElementsByClassName('password');
+  con = pwd[1];
+  pwd = pwd[0];
 
+  if (pwd.value != con.value) {
+    con.setCustomValidity('Le password non coincidono');
+  } else {
+    con.setCustomValidity('');
+  }
+}
 
 // var visible = true;
 // $(window).scroll(()=>{

@@ -27,9 +27,9 @@
     <label>Email: </label><br>
     <input type="email" name="email" required><br>
     <label>Password: </label><br>
-    <input type="password" name="password" required><br>
+    <input class='password' type="password" name="password" onchange="validatePassword()" required><br>
     <label>Conferma Password: </label><br>
-    <input type="password" name="password" required><br>
+    <input class='password' type="password" name="password" onchange="validatePassword()" required><br>
     <button class="submitButton" type="submit" name="sub" value="register">Registrati</button>
   </form>
   <p class="loginChanger unselectable" onclick="toggleLogin()">Hai già un account? Clicca qui!</p>
