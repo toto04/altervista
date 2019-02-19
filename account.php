@@ -38,7 +38,6 @@
 				$email = $_POST['email'];
 				$pwd = hash('sha256', $_POST['password']);
 
-				// TODO: Impedire la creazione di più utenti con lo stesso nome
 				$newUsr = "INSERT INTO users (username, email, password) VALUES ('$usr','$email','$pwd')";
 				mysql_query($newUsr);
 
