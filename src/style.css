@@ -235,7 +235,7 @@ li.menuLink:hover {
   --cp: calc(8px + var(--contentBorder));
   display: block;
   padding: var(--cp);
-  width: calc(100% - 2 * var(cp));
+  width: calc(100% - 2 * var(--cp));
 }
 
 .code {
@@ -316,16 +316,20 @@ li.menuLink:hover {
   margin: 10px;
 }
 
+#newReviewWrapper {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+}
+
 #newReview {
   opacity: 0;
   display: none;
-  position: fixed;
+  position: relative;
   border-radius: 1em;
-  padding: 3%;
-  width: 20%;
-  left: 37%;
-  top: 30%;
-  height: 225px;
+  width: 30%;
+  margin: auto;
+  padding: 16px;
   background-color: var(--greyColor);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
@@ -348,13 +352,18 @@ li.menuLink:hover {
   color: white;
 }
 
+#newReview p {
+  margin-bottom: 0px;
+}
+
 #newReview button {
   width: 60%;
   margin-left: 20%;
 }
 
 #newReview input, textarea {
-  width: 90%;
+  width: 92%;
+  box-sizing: border-box;
 }
 
 #newReview input[type="number"] {
@@ -430,7 +439,6 @@ textarea {
   padding: 16px;
   border-radius: 0 0 0.5em 0.5em;
   background-color: var(--greyColor);
-
 }
 
 .loginChanger {
