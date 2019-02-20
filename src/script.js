@@ -164,18 +164,30 @@ function validatePassword() {
 function checkUsername() {
   var userCheck = document.getElementById('usrchk');
   userCheck.setCustomValidity("Sto controllando la disponibilità...");
-  $.ajax({
-    url: '/etc/checkUser.php?username=' + userCheck.value,
-    success: (res) => {
-      if (res == 'non esiste') {
-        // console.log('Puoi usarlo!');
-        userCheck.setCustomValidity('');
-      } else {
-        // console.log("non puoi");
-        userCheck.setCustomValidity('Username già preso');
+  userCheck.style.backgroundColor = 'hsla(240, 100%, 50%, 0.2)'
+  userCheck.style.animation = "rainbowHueFilter 1s ease infinite"
+  setTimeout(()=> {
+    $.ajax({
+      url: '/etc/checkUser.php?username=' + userCheck.value,
+      success: (res) => {
+        if (res == 'non esiste') {
+          // console.log('Puoi usarlo!');
+          userCheck.setCustomValidity('');
+        } else {
+          // console.log("non puoi");
+          userCheck.setCustomValidity('Username già preso');
+        }
+
+        if (userCheck.checkValidity()) {
+          userCheck.style.backgroundColor = 'hsla(120, 100%, 50%, 0.2)'
+          userCheck.style.animation = "none"
+        } else {
+          userCheck.style.backgroundColor = 'hsla(0, 100%, 50%, 0.2)'
+          userCheck.style.animation = "none"
+        }
       }
-    }
-  });
+    });
+  }, 500);
 }
 
 // var visible = true;

@@ -451,3 +451,13 @@ textarea {
   margin-bottom: 8px;
   padding: 2px;
 }
+
+@keyframes rainbowHueFilter{
+  /* GRAZIE MILLE ELIA TI PRENDO IN PRESTITO QUESTO <3 */
+    0%{
+        filter:hue-rotate(0deg);
+    }
+    100%{
+        filter:hue-rotate(360deg);
+    }
+}

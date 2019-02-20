@@ -51,7 +51,7 @@
 			}
 
 			if ($_SESSION['isLogged']) {
-				echo "Logged";
+				//echo "Logged";
 				echo "<div class='title'><h1>"
 				. "Benvenuto, " . $_SESSION['username']
 				. "! </h1></div>";
