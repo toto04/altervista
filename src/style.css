@@ -452,9 +452,11 @@ textarea {
   width: 100%;
   box-sizing: border-box; /* per evitare che siano più grandi */
   border: none;
+  outline: none;
 }
 
 .login input {
+  border-radius: 2px;
   height: 2em;
   margin-bottom: 8px;
   padding: 2px;
@@ -468,4 +470,109 @@ textarea {
     100%{
         filter:hue-rotate(360deg);
     }
+}
+
+@keyframes rainbowBorder {
+  /* Questo roba è stata scritta da uno script per rendere l'animazione il più omogeneo possibile */
+  0% {border-color: hsl(0, 100%, 50%);}
+  1% {border-color: hsl(4, 100%, 50%);}
+  2% {border-color: hsl(7, 100%, 50%);}
+  3% {border-color: hsl(11, 100%, 50%);}
+  4% {border-color: hsl(14, 100%, 50%);}
+  5% {border-color: hsl(18, 100%, 50%);}
+  6% {border-color: hsl(22, 100%, 50%);}
+  7% {border-color: hsl(25, 100%, 50%);}
+  8% {border-color: hsl(29, 100%, 50%);}
+  9% {border-color: hsl(32, 100%, 50%);}
+  10% {border-color: hsl(36, 100%, 50%);}
+  11% {border-color: hsl(40, 100%, 50%);}
+  12% {border-color: hsl(43, 100%, 50%);}
+  13% {border-color: hsl(47, 100%, 50%);}
+  14% {border-color: hsl(50, 100%, 50%);}
+  15% {border-color: hsl(54, 100%, 50%);}
+  16% {border-color: hsl(58, 100%, 50%);}
+  17% {border-color: hsl(61, 100%, 50%);}
+  18% {border-color: hsl(65, 100%, 50%);}
+  19% {border-color: hsl(68, 100%, 50%);}
+  20% {border-color: hsl(72, 100%, 50%);}
+  21% {border-color: hsl(76, 100%, 50%);}
+  22% {border-color: hsl(79, 100%, 50%);}
+  23% {border-color: hsl(83, 100%, 50%);}
+  24% {border-color: hsl(86, 100%, 50%);}
+  25% {border-color: hsl(90, 100%, 50%);}
+  26% {border-color: hsl(94, 100%, 50%);}
+  27% {border-color: hsl(97, 100%, 50%);}
+  28% {border-color: hsl(101, 100%, 50%);}
+  29% {border-color: hsl(104, 100%, 50%);}
+  30% {border-color: hsl(108, 100%, 50%);}
+  31% {border-color: hsl(112, 100%, 50%);}
+  32% {border-color: hsl(115, 100%, 50%);}
+  33% {border-color: hsl(119, 100%, 50%);}
+  34% {border-color: hsl(122, 100%, 50%);}
+  35% {border-color: hsl(126, 100%, 50%);}
+  36% {border-color: hsl(130, 100%, 50%);}
+  37% {border-color: hsl(133, 100%, 50%);}
+  38% {border-color: hsl(137, 100%, 50%);}
+  39% {border-color: hsl(140, 100%, 50%);}
+  40% {border-color: hsl(144, 100%, 50%);}
+  41% {border-color: hsl(148, 100%, 50%);}
+  42% {border-color: hsl(151, 100%, 50%);}
+  43% {border-color: hsl(155, 100%, 50%);}
+  44% {border-color: hsl(158, 100%, 50%);}
+  45% {border-color: hsl(162, 100%, 50%);}
+  46% {border-color: hsl(166, 100%, 50%);}
+  47% {border-color: hsl(169, 100%, 50%);}
+  48% {border-color: hsl(173, 100%, 50%);}
+  49% {border-color: hsl(176, 100%, 50%);}
+  50% {border-color: hsl(180, 100%, 50%);}
+  51% {border-color: hsl(184, 100%, 50%);}
+  52% {border-color: hsl(187, 100%, 50%);}
+  53% {border-color: hsl(191, 100%, 50%);}
+  54% {border-color: hsl(194, 100%, 50%);}
+  55% {border-color: hsl(198, 100%, 50%);}
+  56% {border-color: hsl(202, 100%, 50%);}
+  57% {border-color: hsl(205, 100%, 50%);}
+  58% {border-color: hsl(209, 100%, 50%);}
+  59% {border-color: hsl(212, 100%, 50%);}
+  60% {border-color: hsl(216, 100%, 50%);}
+  61% {border-color: hsl(220, 100%, 50%);}
+  62% {border-color: hsl(223, 100%, 50%);}
+  63% {border-color: hsl(227, 100%, 50%);}
+  64% {border-color: hsl(230, 100%, 50%);}
+  65% {border-color: hsl(234, 100%, 50%);}
+  66% {border-color: hsl(238, 100%, 50%);}
+  67% {border-color: hsl(241, 100%, 50%);}
+  68% {border-color: hsl(245, 100%, 50%);}
+  69% {border-color: hsl(248, 100%, 50%);}
+  70% {border-color: hsl(252, 100%, 50%);}
+  71% {border-color: hsl(256, 100%, 50%);}
+  72% {border-color: hsl(259, 100%, 50%);}
+  73% {border-color: hsl(263, 100%, 50%);}
+  74% {border-color: hsl(266, 100%, 50%);}
+  75% {border-color: hsl(270, 100%, 50%);}
+  76% {border-color: hsl(274, 100%, 50%);}
+  77% {border-color: hsl(277, 100%, 50%);}
+  78% {border-color: hsl(281, 100%, 50%);}
+  79% {border-color: hsl(284, 100%, 50%);}
+  80% {border-color: hsl(288, 100%, 50%);}
+  81% {border-color: hsl(292, 100%, 50%);}
+  82% {border-color: hsl(295, 100%, 50%);}
+  83% {border-color: hsl(299, 100%, 50%);}
+  84% {border-color: hsl(302, 100%, 50%);}
+  85% {border-color: hsl(306, 100%, 50%);}
+  86% {border-color: hsl(310, 100%, 50%);}
+  87% {border-color: hsl(313, 100%, 50%);}
+  88% {border-color: hsl(317, 100%, 50%);}
+  89% {border-color: hsl(320, 100%, 50%);}
+  90% {border-color: hsl(324, 100%, 50%);}
+  91% {border-color: hsl(328, 100%, 50%);}
+  92% {border-color: hsl(331, 100%, 50%);}
+  93% {border-color: hsl(335, 100%, 50%);}
+  94% {border-color: hsl(338, 100%, 50%);}
+  95% {border-color: hsl(342, 100%, 50%);}
+  96% {border-color: hsl(346, 100%, 50%);}
+  97% {border-color: hsl(349, 100%, 50%);}
+  98% {border-color: hsl(353, 100%, 50%);}
+  99% {border-color: hsl(356, 100%, 50%);}
+  100% {border-color: hsl(360, 100%, 50%);}
 }

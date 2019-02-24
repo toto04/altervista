@@ -164,8 +164,9 @@ function validatePassword() {
 function checkUsername() {
   var userCheck = document.getElementById('usrchk');
   userCheck.setCustomValidity("Sto controllando la disponibilità...");
-  userCheck.style.backgroundColor = 'hsla(240, 100%, 50%, 0.2)'
-  userCheck.style.animation = "rainbowHueFilter 1s ease infinite"
+  userCheck.style.border = '1.5px solid'
+  userCheck.style.borderRadius = '2px'
+  userCheck.style.animation = "rainbowBorder 1s ease infinite"
   setTimeout(()=> {
     $.ajax({
       url: '/etc/checkUser.php?username=' + userCheck.value,
@@ -179,10 +180,10 @@ function checkUsername() {
         }
 
         if (userCheck.checkValidity()) {
-          userCheck.style.backgroundColor = 'hsla(120, 100%, 50%, 0.2)'
+          userCheck.style.borderColor = 'hsl(120, 100%, 50%)'
           userCheck.style.animation = "none"
         } else {
-          userCheck.style.backgroundColor = 'hsla(0, 100%, 50%, 0.2)'
+          userCheck.style.borderColor = 'hsl(0, 100%, 50%)'
           userCheck.style.animation = "none"
         }
       }
