@@ -130,7 +130,6 @@ function loadPage(urlIn) {
 
 function toggleLogin() {
   // Funzione necessaria nella pagina di login per mostrare switchare tra login e registrazione
-  //clearTimeout(lgnTimer)
   var logs = $('.loginWrapper');
 
   var log = logs.eq(0);

@@ -54,8 +54,6 @@
           if ($_SESSION['isLogged']) {
             echo '
             <form method="post">
-            <!-- <label>Nome:</label><br/>
-            <input type="text" name="name" required><br/> -->
             <label>Voto:</label><br/>
             <input type="number" name="mark" min="1" max="10" required><br/>
             <label>Commento:</label><br/>
