@@ -16,7 +16,7 @@
       <div class="title">
         <h1>Errore 404</h1>
         <h2>Pagina non trovata</h2>
-        <a href="#" onclick="loadPage('/index')">Torna allo Home</a>
+        <a href="#" onclick="loadPage('/index')">Torna alla Home</a>
       </div>
 		</div>
 	</div>

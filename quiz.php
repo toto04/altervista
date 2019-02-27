@@ -20,6 +20,7 @@
 					<li><a href="#2">Importazioni</a></li>
 					<li><a href="#3">Squadre</a></li>
 					<li><a href="#4">Il Server</a></li>
+					<li><a href="#5">Gestione delle richieste</a></li>
 				</ul>
 			</div>
 			<div class="mainContent">

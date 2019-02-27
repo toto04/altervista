@@ -17,8 +17,9 @@
 				<h1>Tommaso Morganti</h1>
 				<h5>Non ho foto mie quindi ho messo quello che ho trovato nel mio telefono 😊</h5>
 				<p>
-					Questo progetto è hostato su GitHub, puoi visualizzare la repo 
+					Questo progetto è hostato su GitHub, puoi visualizzare la repo
 					<a href="https://github.com/toto04/altervista">qui</a>
+					per vedere tutti i cambiamenti, proporre funzioni o segnalare bug
 				</p>
 			</div>
 			<script src="/src/javascript/home.js" charset="utf-8"></script>
