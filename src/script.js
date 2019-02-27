@@ -29,7 +29,7 @@ function init() {
       menuSize = left.clientWidth;
       var pth = window.location.pathname;
       pth = pth.substr(1, pth.length);
-      $('#source').attr('onclick', 'loadPage("/etc/print?url=' + pth + '")');
+      $('#source').attr('onclick', 'loadPage("/etc/print?url=' + pth + '.php")');
       left.style.left = '-' + menuSize + 'px';
     });
   });
@@ -119,7 +119,7 @@ function loadPage(urlIn) {
         } else {
           srcUrl = urlIn.substr(1, urlIn.length);
         }
-        srcUrl = "/etc/print?url=" + srcUrl;
+        srcUrl = "/etc/print?url=" + srcUrl + '.php';
         $('#source').attr("onclick", 'loadPage("' + srcUrl + '")')
 
         window.history.pushState(pageName, pageName, urlIn) //cambia l'url in quello della nuova pagina
