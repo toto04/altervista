@@ -16,6 +16,7 @@
       <div class="title">
         <h1>Errore 404</h1>
         <h2>Pagina non trovata</h2>
+				<a href="https://github.com/toto04/altervista/issues/new">Segnala un bug</a><br>
         <a href="#" onclick="loadPage('/index')">Torna alla Home</a>
       </div>
 		</div>
