@@ -21,12 +21,18 @@
 				$usr = $_POST['username'];
 				$pwd = hash('sha256', $_POST['password']);
 
-				$logQuery = "SELECT password FROM users WHERE username='$usr'";
+				$logQuery = "SELECT * FROM users WHERE username='$usr'";
 				$cont = mysql_query($logQuery);
 				$pass = mysql_fetch_array($cont)['password'];
 				if ($pwd == $pass) {
 					$_SESSION['isLogged'] = true;
 					$_SESSION['username'] = $usr;
+					$v = mysql_fetch_array($cont)['verified'];
+					if ($v == 1) {
+						$_SESSION['verified'] = true;
+					} else {
+						$_SESSION['verified'] = false;
+					}
 				} else {
 					echo "Password sbagliata!";
 				}
@@ -39,8 +45,9 @@
 
 				$newUsr = "INSERT INTO users (username, email, password) VALUES ('$usr','$email','$pwd')";
 				mysql_query($newUsr);
-
+				
 				$_SESSION['isLogged'] = true;
+				$_SESSION['verified'] = false;
 				$_SESSION['username'] = $usr;
 			} else if ($_POST['sub'] == 'logout') {
 				echo "logout";
@@ -54,8 +61,13 @@
 				//echo "Logged";
 				echo "<div class='title'><h1>"
 				. "Benvenuto, " . $_SESSION['username']
-				. "! </h1></div>";
-				echo '
+				. "! </h1>";
+				if (!$_SESSION['verified']) {
+					echo "<p>Non hai ancora verificato l'email</p>";
+				} else {
+					echo "<p>Email verificata</p>";
+				}
+				echo '</div>
 				<form method="post" class="loginWrapper">
     			<button class="submitButton" type="submit" name="sub" value="logout">Logout</button>
 				</form>';
